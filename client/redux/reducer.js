@@ -1,8 +1,9 @@
-import { SET_CAMPUSES, SELECT_CAMPUS, ADD_CAMPUS } from './constants';
+import { SET_CAMPUSES, SELECT_CAMPUS, ADD_CAMPUS, ADD_CAMPUS_FORM } from './constants';
 
 const initialState = {
   campuses: [],
-  selectedCampus: {}
+  selectedCampus: {},
+  campusEntry: '',
 };
 
 export default (state = initialState, action) => {
@@ -15,6 +16,9 @@ export default (state = initialState, action) => {
 
     case ADD_CAMPUS:
       return {...state, campuses: [...state.campuses, action.campus]};
+
+    case ADD_CAMPUS_FORM:
+      return {...state, campusEntry: action.campusEntry}
 
     default:
       return state;

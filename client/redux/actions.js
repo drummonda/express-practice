@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SET_CAMPUSES, SELECT_CAMPUS, ADD_CAMPUS } from './constants';
+import { SET_CAMPUSES, SELECT_CAMPUS, ADD_CAMPUS, ADD_CAMPUS_FORM } from './constants';
 
 // ACTION CREATORS
 
@@ -24,6 +24,13 @@ export function addCampus (campus) {
   }
 }
 
+export function addCampusForm (campusEntry) {
+  return {
+    type: ADD_CAMPUS_FORM,
+    campusEntry
+  }
+}
+
 // THUNK CREATORS
 
 export function fetchCampuses () {
@@ -39,5 +46,14 @@ export function postCampus (campus) {
     const res = await axios.post('/api/campuses', campus);
     const newCampus = res.data;
     dispatch(addCampus(newCampus));
+  }
+}
+
+export function fetchOneCampus (campusId) {
+  return async function (dispatch) {
+    const res = await axios.get(`/api/campuses/${campusId}`);
+    const foundCampus = res.data;
+    console.log(foundCampus)
+    dispatch(selectCampus(foundCampus));
   }
 }

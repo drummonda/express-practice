@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import CampusList from './components/CampusList'
+import SingleCampus from './components/SingleCampus'
+import store from './redux/store'
 
 import App from './components/App';
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <HashRouter >
+      <Switch>
+        <Route exact path='/' component={App} />
+        <Route exact path='/campuses' component={CampusList} />
+        <Route exact path='/campuses/:id' component={SingleCampus} />
+      </Switch>
+    </HashRouter>
+  </Provider>,
   document.getElementById('app')
 );
