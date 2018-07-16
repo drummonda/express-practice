@@ -3,10 +3,28 @@ import React, { Component } from 'react';
 
 export default class CampusForm extends Component {
 
-  //your code here
+  constructor (props) {
+    super(props);
+    this.state = {
+      name: '',
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange (event) {
+    const newName = event.target.value;
+    this.setState({
+      name: newName,
+    })
+  }
 
   render() {
-    //your code here
-    return null;
+
+    return (
+      <form className='campus-form'>
+        <label></label>
+        <input onChange={this.handleChange} ></input>
+      </form>
+    )
   }
 }

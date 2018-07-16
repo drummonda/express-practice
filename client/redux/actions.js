@@ -17,8 +17,11 @@ export function selectCampus (campus) {
   }
 }
 
-export function addCampus () {
-  //your code here
+export function addCampus (campus) {
+  return {
+    type: ADD_CAMPUS,
+    campus,
+  }
 }
 
 // THUNK CREATORS
@@ -31,6 +34,10 @@ export function fetchCampuses () {
   }
 }
 
-export function postCampus () {
-  //your code here
+export function postCampus (campus) {
+  return async function (dispatch) {
+    const res = await axios.post('/api/campuses', campus);
+    const newCampus = res.data;
+    dispatch(addCampus(newCampus));
+  }
 }

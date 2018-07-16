@@ -14,4 +14,14 @@ const Student = db.define('student', {
   }
 });
 
+// Student.findByPhase class method
+Student.findByPhase = async function (phase) {
+  const studentsByPhase = await Student.findAll({
+    where: {
+      phase: phase,
+    }
+  })
+  return studentsByPhase;
+}
+
 module.exports = Student;

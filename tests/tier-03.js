@@ -58,7 +58,7 @@ describe('Tier Three', () => {
       describe('Class method - findByPhase', () => {
         // defined in ../server/models/Student.js
 
-        xit('should find all students belonging to a certain phase', async () => {
+        it('should find all students belonging to a certain phase', async () => {
           const students = await Student.findByPhase('junior')
           expect(students.length).to.be.equal(1);
           expect(students[0].name).to.be.equal('Terry Witz');
@@ -71,7 +71,7 @@ describe('Tier Three', () => {
       describe('GET /campuses/:id route enhanced', () => {
         // defined in ../server/routes/campuses.js
 
-        xit('should populate (eager-load) the student information for the found campus', async () => {
+        it('should populate (eager-load) the student information for the found campus', async () => {
           const response = await agent.get('/api/campuses/1').expect(200);
           expect(response.body.students.length).to.equal(2);
           expect(response.body.students[0].name).to.exist; // eslint-disable-line no-unused-expressions
@@ -79,7 +79,7 @@ describe('Tier Three', () => {
       })
 
       describe('POST /campuses/ route', () => {
-        xit('should create a campus', async () => {
+        it('should create a campus', async () => {
           // defined in ../server/routes/campuses.js
 
           const response = await agent.post('/api/campuses')
@@ -95,7 +95,7 @@ describe('Tier Three', () => {
       describe('POST /campuses/:id/students route', () => {
         // defined in ../server/routes/campuses.js
 
-        xit('should create a student associated with the campus indicated by the route', async () => {
+        it('should create a student associated with the campus indicated by the route', async () => {
           const response = await agent.post('/api/campuses/1/students')
             .send({
               name: 'Karley Remoteson',
@@ -121,16 +121,16 @@ describe('Tier Three', () => {
         campusFormInstance = renderedCampusForm.instance();
       })
 
-      xit('should be a class component with an initial local state', () => {
+      it('should be a class component with an initial local state', () => {
         expect(campusFormInstance).to.exist; // eslint-disable-line no-unused-expressions
         expect(campusFormInstance.state).to.eql({name: ''});
       })
 
-      xit('should render an <input /> element', () => {
+      it('should render an <input /> element', () => {
         expect(renderedCampusForm.find('input').node).to.exist; // eslint-disable-line no-unused-expressions
       })
 
-      xit('should have a method called handleChange that is invoked when there is a change event triggered by the <input /> element', () => {
+      it('should have a method called handleChange that is invoked when there is a change event triggered by the <input /> element', () => {
         expect(typeof campusFormInstance.handleChange).to.equal('function')
         const handleChangeSpy = sinon.spy()
         campusFormInstance.handleChange = handleChangeSpy;
@@ -141,7 +141,7 @@ describe('Tier Three', () => {
         expect(handleChangeSpy.calledOnce).to.equal(true);
       })
 
-      xit('handleChange should update the local state', () => {
+      it('handleChange should update the local state', () => {
         renderedCampusForm.find('input').simulate('change', {
           target: { value: 'Another Campus Name' }
         })
@@ -170,13 +170,13 @@ describe('Tier Three', () => {
           mock.restore();
         })
 
-        xit('should allow synchronous creation of ADD_CAMPUS actions', () => {
+        it('should allow synchronous creation of ADD_CAMPUS actions', () => {
           const addCampusAction = addCampus(starfleetCampus);
           expect(addCampusAction.type).to.equal(ADD_CAMPUS);
           expect(addCampusAction.campus).to.eql(starfleetCampus);
         });
 
-        xit('postCampus() returns a thunk to post a new campus to the backend and dispatch an ADD_CAMPUS action', async () => {
+        it('postCampus() returns a thunk to post a new campus to the backend and dispatch an ADD_CAMPUS action', async () => {
           mock.onPost('/api/campuses').replyOnce(201, starfleetCampus);
 
           await store.dispatch(postCampus(starfleetCampus))
@@ -190,7 +190,7 @@ describe('Tier Three', () => {
       describe('reducer', () => {
           // defined in ../client/redux/reducer.js
 
-        xit('returns a new state with the newly created campus added to the list of campuses', () => {
+        it('returns a new state with the newly created campus added to the list of campuses', () => {
           const remoteCampus = {id: 1, name: 'Fullstack Remote Campus'}
           const starfleetCampus = {id: 2, name: 'Starfleet Academy'}
           initialState.campuses = [remoteCampus];

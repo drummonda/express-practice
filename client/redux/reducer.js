@@ -13,6 +13,9 @@ export default (state = initialState, action) => {
     case SELECT_CAMPUS:
       return {...state, selectedCampus: action.campus};
 
+    case ADD_CAMPUS:
+      return {...state, campuses: [...state.campuses, action.campus]};
+
     default:
       return state;
   }
