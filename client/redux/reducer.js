@@ -10,6 +10,9 @@ export default (state = initialState, action) => {
     case SET_CAMPUSES:
       return {...state, campuses: action.campuses};
 
+    case SELECT_CAMPUS:
+      return {...state, selectedCampus: action.campus};
+
     default:
       return state;
   }

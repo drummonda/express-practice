@@ -10,8 +10,11 @@ export function setCampuses (campuses) {
   }
 }
 
-export function selectCampus () {
-  //you code here
+export function selectCampus (campus) {
+  return {
+    type: SELECT_CAMPUS,
+    campus
+  }
 }
 
 export function addCampus () {
@@ -21,7 +24,11 @@ export function addCampus () {
 // THUNK CREATORS
 
 export function fetchCampuses () {
-  //your code here
+  return async function (dispatch) {
+    const res = await axios.get('/api/campuses');
+    const campuses = res.data;
+    dispatch(setCampuses(campuses));
+  }
 }
 
 export function postCampus () {

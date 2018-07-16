@@ -27,6 +27,21 @@ router.get('/:id', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+// /api/campuses/:id/students fetches all students for one campus
+router.get('/:id/students', async (req, res, next) => {
+  try {
+    const campusId = req.params.id;
+    const campusStudents = await Student.findAll({
+      where: {
+        campusId: campusId,
+      }
+    });
+    res.send(campusStudents);
+  } catch (err) {
+    next(err);
+  }
 })
 
 module.exports = router;
