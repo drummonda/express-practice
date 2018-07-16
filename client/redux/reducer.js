@@ -6,6 +6,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  //your code here
-  return state;
+  switch (action.type) {
+    case SET_CAMPUSES:
+      return {...state, campuses: action.campuses};
+
+    default:
+      return state;
+  }
 };
