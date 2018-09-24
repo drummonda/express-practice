@@ -1,0 +1,29 @@
+div#app-container {
+  margin: 5% 5% 5% 5%;
+}
+
+div.campus-list {
+  margin: 5% 5% 5% 5%;
+}
+
+div.student-list {
+  margin: 5% 5% 5% 5%;
+}
+
+ul {
+  display: flex;
+  flex-flow: wrap column;
+  height: 200px;
+  width: 300px;
+}
+
+.campus-item {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 50%;
+  height: 25%;
+}
+
