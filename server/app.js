@@ -9,9 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-const campusesSubRouter = require('./routes/campuses');
+const ownersRouter = require('./routes/owners');
+const petsRouter = require('./routes/pets');
 
-app.use('/api/campuses', campusesSubRouter);
+app.use('/api/owners', ownersRouter);
+app.use('/api/pets', petsRouter);
 
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, './index.html'));
