@@ -1,0 +1,37 @@
+[{
+  "name": "Andrew",
+  "age": "13",
+  "pets": [{
+    "name": "Cody",
+    "age": "11",
+    "favorite_food": "Tacos"
+  }, {
+    "name": "Ron",
+    "age": "2",
+    "favorite_food": "Peanut Butter"
+  }]
+}, {
+  "name": "Matt",
+  "age": "25",
+  "pets": [{
+    "name": "Viktor",
+    "age": "27",
+    "favorite_food": "Licorice"
+  }, {
+    "name": "Igor",
+    "age": "21",
+    "favorite_food": "Purell"
+  }]
+}, {
+  "name": "Francisco",
+  "age": "27",
+  "pets": [{
+    "name": "Ilena",
+    "age": "12",
+    "favorite_food": "Sheep"
+  }, {
+    "name": "Fleur",
+    "age": "22",
+    "favorite_food": "Fairies"
+  }]
+}]

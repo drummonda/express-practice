@@ -2,10 +2,10 @@
 
 const db = require('./_db');
 
-const Campus = require('./Campus');
-const Student = require('./Student');
+const Owner = require('./Owner');
+const Pet = require('./Pet');
 
-Campus.hasMany(Student);
-Student.belongsTo(Campus);
+Owner.hasMany(Pet);
+Pet.belongsTo(Owner);
 
 module.exports = db;

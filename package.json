@@ -1,15 +1,12 @@
 {
-  "name": "senior-checkpoint-tiered",
+  "name": "express-practice",
   "version": "1.0.0",
   "author": "Fullstack Instructors",
   "scripts": {
-    "test": "mocha ./tests/setup.js ./tests --recursive --watch --require babel-polyfill --require babel-register",
-    "tier-1": "mocha ./tests/setup.js ./tests/tier-01 --recursive --watch --require babel-polyfill --require babel-register",
-    "tier-2": "mocha ./tests/setup.js ./tests/tier-02 --recursive --watch --require babel-polyfill --require babel-register",
-    "tier-3": "mocha ./tests/setup.js ./tests/tier-03 --recursive --watch --require babel-polyfill --require babel-register",
     "start": "webpack -w & nodemon server --watch server",
-    "db-init": "pg-init checkpoint_senior_tiers",
-    "postinstall": "npm run db-init"
+    "db-init": "pg-init express-practice",
+    "postinstall": "npm run db-init",
+    "seed": "node bin/seed"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.9.0",
@@ -21,18 +18,12 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.16.3",
     "bluebird": "^2.9.34",
-    "chai": "^3.2.0",
-    "chai-enzyme": "^0.5.2",
-    "chai-properties": "^1.2.1",
-    "chai-things": "^0.2.0",
-    "enzyme": "^2.8.2",
     "faker": "^3.1.0",
     "fs-misc": "^2.0.0",
     "mocha": "^4.0.1",
     "nodemon": "^1.11.0",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
-    "redux-mock-store": "^1.3.0",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "supertest": "^3.0.0",
@@ -46,11 +37,10 @@
     "pg": "^5.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-redux": "^5.0.7",
     "react-router": "^3.0.5",
     "react-router-dom": "^4.3.1",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.3.0",
+    "semantic-ui": "^2.3.3",
+    "semantic-ui-react": "^0.82.0",
     "sequelize": "^4.8.3"
   }
 }

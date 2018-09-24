@@ -1,22 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux'
-import CampusList from './components/CampusList'
-import SingleCampus from './components/SingleCampus'
-import store from './redux/store'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
+import OwnerList from './components/OwnerList'
+import SingleOwner from './components/SingleOwner'
+import PetList from './components/PetList'
+import SinglePet from './components/SinglePet'
+import Navbar from './components/Navbar'
 
 import App from './components/App';
 
 ReactDOM.render(
-  <Provider store={store}>
     <HashRouter >
-      <Switch>
-        <Route exact path='/' component={App} />
-        <Route exact path='/campuses' component={CampusList} />
-        <Route exact path='/campuses/:id' component={SingleCampus} />
-      </Switch>
-    </HashRouter>
-  </Provider>,
+      <div id='router-children'>
+        <Navbar />
+        <Switch>
+          <Route exact path='/owners/:id' component={SingleOwner} />
+          <Route exact path='/pets/:id' component={SinglePet} />
+          <Route path='/owners' component={OwnerList} />
+          <Route path='/pets' component={PetList} />
+          <Route path='/' component={App} />
+        </Switch>
+      </div>
+    </HashRouter>,
   document.getElementById('app')
 );
